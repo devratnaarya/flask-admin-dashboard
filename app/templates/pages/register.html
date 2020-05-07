@@ -33,18 +33,33 @@
           {{ form.hidden_tag() }}
 
           <div class="form-group">
-            <label class="text-normal text-dark">Friendly Name</label>
-            {{ form.name(placeholder="Friendly Name", class="form-control") }}
+            <label class="text-normal text-dark">Name</label>
+            {{ form.name(placeholder="Full Name", class="form-control") }}
+          </div>
+
+          <div class="form-group">
+            <label class="text-normal text-dark">Mobile</label>
+            {{ form.mobile(placeholder="Mobile number", class="form-control") }}
+          </div>
+
+          <div class="form-group">
+            <label class="text-normal text-dark">Gender</label>
+            {{ form.gender(placeholder="Gender", class="form-control") }}
+          </div>
+
+          <div class="form-group">
+            <label class="text-normal text-dark">Gender</label>
+            {{ form.age(placeholder="Age", class="form-control", type="number") }}
+          </div>
+
+          <div class="form-group">
+            <label class="text-normal text-dark">eMail Address</label>
+            {{ form.email(placeholder="eMail Address", class="form-control") }}
           </div>
 
           <div class="form-group">
             <label class="text-normal text-dark">Username</label>
             {{ form.username(placeholder="Username", class="form-control") }}
-          </div>
-          
-          <div class="form-group">
-            <label class="text-normal text-dark">eMail Address</label>
-            {{ form.email(placeholder="eMail Address", class="form-control") }}
           </div>
 
           <div class="form-group">
@@ -53,11 +68,11 @@
           </div>
 
           <div class="form-group">
-            <button type="submit" class="btn btn-primary">Register</button> 
+            <button type="submit" class="btn btn-primary">Register</button>
 
             &nbsp; &nbsp;
             <span class="text-small font-weight-semibold">Already have and account?</span>
-            <a href="/login.html" class="text-black text-small">Login</a>    
+            <a href="/login.html" class="text-black text-small">Login</a>
           </div>
 
         </form>
