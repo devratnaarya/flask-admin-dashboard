@@ -82,13 +82,10 @@ def register():
 # Register a new user
 @app.route('/user', methods=['POST'])
 def create_user():
-
     # declare the Registration Form
     form = CreateUserForm(request.form)
     # check if both http method is POST and form is valid on submit
     if form:
-        import pdb
-        pdb.set_trace()
         # assign form data to variables
         username = request.form.get('username', '', type=str)
         password = request.form.get('password', '', type=str)
@@ -154,7 +151,14 @@ def login():
 
 @app.route('/users', methods=['GET'])
 def get_users():
-    return get_all_users()
+    user_query = request.args.get('q')
+    return get_all_users(user_query)
+
+
+@app.route('/user/<user_id>', methods=['GET'])
+def get_user(user_id):
+    return User.query.filter_by(id=user_id).first()
+
 
 # App main route + generic routing
 @app.route('/', defaults={'path': 'index.html'})
