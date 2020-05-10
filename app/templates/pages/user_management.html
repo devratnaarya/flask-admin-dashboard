@@ -134,19 +134,7 @@
 </div>
 
 {% block javascripts %}
-<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-<script type="text/javascript" src="/static/assets/BsMultiSelect.js"></script>
-<script>$("#validationCustom07").bsMultiSelect();</script>
 <script>
-        $('#dev').dataTable({
-            "ajax": {
-                "url": "/users",
-                "type": "GET"
-            }
-        } );
-
       function saveUser(){
         $.ajax({
             url: "/user",
@@ -162,9 +150,21 @@
              },
             success: function(result){
               alert(result.msg);
-<!--              $('#createUserModel').modal('hide');-->
+            //    $('#createUserModel').modal('hide');
             }});
       }
+
+    $(document).ready(function() {
+        $('#dev').dataTable({
+            "ajax": {
+                "url": "/users",
+                "type": "GET"
+            }
+        });
+
+        var tableWrapper = document.getElementById("dev_wrapper");
+        tableWrapper.style.width = '100%';
+    });
 
         // Example starter JavaScript for disabling form submissions if there are invalid fields
         (function() {
@@ -185,8 +185,11 @@
         })();
 
 </script>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script type="text/javascript" src="/static/assets/BsMultiSelect.js"></script>
+<script>$("#validationCustom07").bsMultiSelect();</script>
 {% endblock javascripts %}
-
-</div>
 
 {% endblock content %}
